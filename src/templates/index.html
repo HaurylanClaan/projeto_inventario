@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Gerenciador de Inventário</h1>
+        <nav>
+            <a href="/">Ver Itens</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Lista de Itens</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.quantidade }}</td>
+                    <td>
+                        <a href="/editar/{{ item.id }}">Editar</a>
+                        <a href="/excluir/{{ item.id }}">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <form action="/adicionar" method="post">
+            <input type="text" name="nome" placeholder="Nome do item" required>
+            <input type="number" name="quantidade" placeholder="Quantidade" required>
+            <button type="submit">Adicionar</button>
+        </form>
+    </main>
+</body>
+</html>
