@@ -2,8 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventário de Produtos</title>
+    <title>Todos os Produtos</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -14,20 +13,13 @@
             Gestor de Inventário
         </div>
         <nav>
-            <a href="/" class="active"><i class="fa-solid fa-list"></i> Todos os Produtos</a>
-            <a href="/adicionar" class="add-btn" style="margin:0;"><i class="fa-solid fa-plus"></i> Adicionar Produto</a>
+            <a href="/produtos" class="active"><i class="fa-solid fa-list"></i> Todos os Produtos</a>
+            <a href="/adicionar" class="add-btn"><i class="fa-solid fa-plus"></i> Adicionar Produto</a>
         </nav>
     </header>
 
     <main style="width:100%;max-width:1100px;">
-        <h1><i class="fa-solid fa-boxes-stacked"></i> Inventário de Produtos</h1>
-
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar produtos por nome, descrição ou categoria...">
-            <button><i class="fa-solid fa-search"></i> Buscar</button>
-            <a href="/adicionar" class="add-btn"><i class="fa-solid fa-plus"></i> Adicionar Novo Produto</a>
-        </div>
-
+        <h1><i class="fa-solid fa-boxes-stacked"></i> Todos os Produtos</h1>
         <table>
             <thead>
                 <tr>
@@ -67,7 +59,6 @@
                 {% endfor %}
             </tbody>
         </table>
-
         <footer>
             <i class="fa-solid fa-code"></i> Sistema de Gestão de Inventário - Desenvolvido com Flask &amp; SQLite
         </footer>

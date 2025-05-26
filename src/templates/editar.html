@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Produto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <main style="width:100%;max-width:500px;margin:auto;">
+        <h2 style="margin-bottom:24px;"><i class="fa-solid fa-pen"></i> Editar Produto</h2>
+        <form method="post" style="display:flex;flex-direction:column;gap:14px;">
+            <label>Nome:
+                <input type="text" name="nome" value="{{ item.name }}" required>
+            </label>
+            <label>Descrição:
+                <input type="text" name="descricao" value="{{ item.descricao }}">
+            </label>
+            <label>Categoria:
+                <input type="text" name="categoria" value="{{ item.categoria }}">
+            </label>
+            <label>Preço:
+                <input type="number" name="preco" min="0" step="0.01" value="{{ item.preco }}" required>
+            </label>
+            <label>Quantidade:
+                <input type="number" name="quantidade" min="1" value="{{ item.quantidade }}" required>
+            </label>
+            <button type="submit" class="btn-salvar"><i class="fa-solid fa-save"></i> Salvar</button>
+        </form>
+        <button type="button" class="btn-voltar" onclick="window.location.href='/'"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+    </main>
+</body>
+</html>

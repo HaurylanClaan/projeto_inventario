@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizar Produto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <main style="width:100%;max-width:1200px;margin:auto;">
+        <h2 style="margin-bottom:24px;"><i class="fa-solid fa-eye"></i> Detalhes do Produto</h2>
+        <div class="detalhes-container detalhes-flex">
+            <div class="foto-produto">
+                <img src="{{ url_for('static', filename='uploads/' ~ item.foto) }}" alt="Foto do Produto">
+            </div>
+            <div class="detalhes-lista">
+                <div class="campo-detalhe"><span class="campo-label">Nome:</span> <span>{{ item.name }}</span></div>
+                <div class="campo-detalhe"><span class="campo-label">Descrição:</span> <span>{{ item.descricao }}</span></div>
+                <div class="campo-detalhe"><span class="campo-label">Categoria:</span> <span class="badge-categoria">{{ item.categoria }}</span></div>
+                <div class="campo-detalhe"><span class="campo-label">Preço:</span> <span class="preco-destaque">R$ {{ "%.2f"|format(item.preco) }}</span></div>
+                <div class="campo-detalhe"><span class="campo-label">Quantidade:</span> <span class="badge-quantidade">{{ item.quantidade }}</span></div>
+                <div class="campo-detalhe"><span class="campo-label">Adicionado em:</span> <span>{{ item.data_adicionado }}</span></div>
+                <button class="btn-voltar" onclick="window.location.href='/'"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
